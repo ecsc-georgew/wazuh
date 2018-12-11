@@ -341,6 +341,7 @@ void LogCollectorStart()
 #endif
                         }
                         current->fp = NULL;
+                        current->exists = 1;
 
                         handle_file(i, j, 0, 1);
                         continue;
@@ -948,6 +949,7 @@ int check_pattern_expand(int do_seek) {
                     os_strdup(g.gl_pathv[glob_offset], globs[j].gfiles[i].file);
                     globs[j].gfiles[i].mutex = (pthread_mutex_t)PTHREAD_MUTEX_INITIALIZER;
                     globs[j].gfiles[i].fp = NULL;
+                    globs[j].gfiles[i].exists = 1;
                     globs[j].gfiles[i + 1].file = NULL;
                     globs[j].gfiles[i + 1].target = NULL;
                     current_files++;
